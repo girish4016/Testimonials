@@ -10,7 +10,7 @@ function Card (  { Testimonials , currentIndex , setCurrentIndex }  )
     }
 
     return (
-        <div className='flex flex-col w-[85vw] md:w-[700px] bg-white justify-center text-center mx-auto rounded-lg p-10 shadow-md mb-4 min-[768px]:relative' >
+        <div className='flex flex-col w-[85vw] md:w-[700px] bg-white justify-center text-center mx-auto rounded-lg p-10 shadow-md mb-4 min-[768px]:relative transition-all duration-300 ' >
 
             <img className='w-[140px] object-cover rounded-full shadow-[8px_-5px_8px_0_#888888] mx-auto min-[768px]:absolute min-[768px]:m-0 min-[768px]:-top-20 min-[768px]:left-10' 
             src = {Testimonials[currentIndex].image} alt = ""></img>
@@ -21,16 +21,16 @@ function Card (  { Testimonials , currentIndex , setCurrentIndex }  )
             </div>
 
             <div>
-                <FaQuoteLeft className=' mx-auto my-5 text-gray-500' />
+                <FaQuoteLeft className=' mx-auto my-5 text-gray-500 hover:text-gray-800 ' />
                 <p className='text-gray-500' >{Testimonials[currentIndex].text}</p>
-                <FaQuoteRight className=' mx-auto my-5  text-gray-500' />
+                <FaQuoteRight className=' mx-auto my-5  text-gray-500 hover:text-gray-800 ' />
             </div>
 
             <div className='flex flex-col justify-center text-center py-6' >
 
                 <div className='flex flex-row mx-auto gap-5 text-2xl text-gray-600' >
-                    <FaChevronLeft onClick={ ()=>{ setCurrentIndex( (currentIndex-1)>=0 ? (currentIndex-1) : (Testimonials.length -1) ) } } />
-                    <FaChevronRight onClick={ ()=>{ setCurrentIndex( (currentIndex+1)%Testimonials.length ) } } />
+                    <FaChevronLeft className='cursor-pointer px-1' onClick={ ()=>{ setCurrentIndex( (currentIndex-1)>=0 ? (currentIndex-1) : (Testimonials.length -1) ) } } />
+                    <FaChevronRight className='cursor-pointer px-1' onClick={ ()=>{ setCurrentIndex( (currentIndex+1)%Testimonials.length ) } } />
                 </div>
             </div>
 
